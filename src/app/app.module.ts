@@ -6,9 +6,10 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AgGridModule } from 'ag-grid-angular';
 import { TodoListComponent } from './todo-list/todo-list.component';
+import { PostDetailsComponent } from './post-details/post-details.component';
 
 @NgModule({
-  declarations: [AppComponent, TodoListComponent],
+  declarations: [AppComponent, TodoListComponent, PostDetailsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

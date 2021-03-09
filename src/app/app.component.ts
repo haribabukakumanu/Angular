@@ -1,4 +1,3 @@
-import { PostsService } from './services/posts.service';
 import { Component, NgModule } from '@angular/core';
 
 @Component({
@@ -7,13 +6,5 @@ import { Component, NgModule } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  constructor(private postData: PostsService) {}
   title = 'employee-info-app';
-  rowData: any;
-  ngOnInit() {
-    this.postData.getPosts().subscribe((posts) => {
-      console.log(posts);
-      this.rowData = posts;
-    });
-  }
 }

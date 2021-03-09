@@ -1,13 +1,22 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Posts } from '../model/posts.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PostsService {
-  url: string = 'https://jsonplaceholder.typicode.com/posts';
-  constructor(private http: HttpClient) {}
-  getPosts() {
-    return this.http.get(this.url);
+  baseURL: string = 'https://jsonplaceholder.typicode.com/posts';
+  postList: Posts[] = [];
+  constructor(public http: HttpClient) {}
+
+  deletePostDetails(id: number) {
+    return this.http.delete(`${this.baseURL}/${id}`);
+  }
+  refreshList() {
+    this.http
+      .get(this.baseURL)
+      .toPromise()
+      .then((res) => (this.postList = res as Posts[]));
   }
 }
